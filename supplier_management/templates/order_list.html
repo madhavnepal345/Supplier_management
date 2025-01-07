@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Orders</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Customer</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.product.name }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.customer_name }}</td>
+        <td>{{ order.status }}</td>
+        <td><a href="{% url 'order_update' order.id %}">Update</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
